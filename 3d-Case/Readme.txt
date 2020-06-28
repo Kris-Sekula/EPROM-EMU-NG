@@ -1,1 +1,0 @@
-Calling it a "case" is a bit of overstatement, it's simply a plastic "base plate" that you can install your emulator into, and after adding some rubber feet (I use 3M sticky ones) it will keep both your emulator and your table "protected".
