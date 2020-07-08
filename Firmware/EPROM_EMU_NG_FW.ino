@@ -1,6 +1,6 @@
 // parts of this sketch were adapted from https://github.com/bienata/CA80/tree/master/ca80loader_ardu , credits to Natasza
 // 
-// this sketch controls the EPROM memory Emulator hardware described on mygeekyhobby.com
+// this sketch controls the EPROM memory Emulator hardware described on https://mygeekyhobby.com/2020/07/05/eprom-emulator/
 //
 //
 
@@ -64,7 +64,7 @@ bool autoLoad;
 unsigned int lastEPROM;
                        
 const char HW_ver[] = "1.0b";
-const char FW_ver[] = "1.5";                                        // <---------------------------------------- Don'f forget to update SW version after change  
+const char FW_ver[] = "1.5";
 
 //
 
