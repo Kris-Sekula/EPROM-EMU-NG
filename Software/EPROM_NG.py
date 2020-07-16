@@ -4,6 +4,8 @@
 # 						- fixed the args parsing
 #						- added auto load wait option
 #						- added save SPI option
+# ver 1.3 - july 2020	- removed some of the debug stuff
+#						- removed address scrolling when loading
 
 import argparse
 import serial,os
@@ -23,9 +25,6 @@ parser.add_argument('-auto', metavar='y/n', choices=['y','n'], default=False, he
 
 args = parser.parse_args()
 
-print("")
-print(args)
-print("")
 
 mem_type = ""
 if args.mem == "2716":
@@ -64,19 +63,21 @@ try:
 	
 	ser.flushInput() # ignore anything waiting in the input buffer.
 	
-	print("\n-- attempting to get sync --")
+	print("\n-- attempting to get sync --\n")
 	
 	data_tx = (":dml\r\n").encode()
 	ser.write(data_tx)
 
 	response = ser.readline()
+
 	if "HW: " in response.decode():	# Emulator will respond with version number like "HW: v1.0"
 		print(response.decode())
 	elif "...." in response.decode():
 		print("Waiting for autoupload to finish... Note: you can disable autoupload by long pressing pushbutton")
 		while "..." in ser.readline().decode():
-			print(".")
-	
+			print(".", end=' ', flush=True)	
+		
+		print("")
 		time.sleep(2)
 		ser.flushInput() # ignore anything waiting in the input buffer.
 
@@ -136,7 +137,7 @@ try:
 			line = fp.readline()
 			ser.write(line.encode())
 			response = ser.readline()
-			print(response[:-2].decode("utf-8"))
+			print(response[:-2].decode("utf-8"), end='\r', flush=True)
 			if line[7:9] == "00": # count only data records
 				bytesdata += len(line[9:-3])//2
 			if not line:
