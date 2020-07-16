@@ -1,6 +1,6 @@
 // parts of this sketch were adapted from https://github.com/bienata/CA80/tree/master/ca80loader_ardu , credits to Natasza
 // 
-// this sketch controls the EPROM memory Emulator hardware described on https://mygeekyhobby.com/2020/07/05/eprom-emulator/
+// this sketch controls the EPROM memory Emulator hardware described on mygeekyhobby.com
 //
 //
 
@@ -63,8 +63,8 @@ bool saveSPI;
 bool autoLoad;
 unsigned int lastEPROM;
                        
-const char HW_ver[] = "1.0b";
-const char FW_ver[] = "1.5";
+const char HW_ver[] = "1.4";
+const char FW_ver[] = "1.6";
 
 //
 
@@ -280,11 +280,12 @@ void saveToSPI (char data) {
       digitalWrite(SLAVESELECT,HIGH);
       
       // wait for write to finish, for 25LC512 Twc = 5ms 
-       delay(6);
+       delay(10);
     //
     page_ctn = 0;
     spi_address = spi_address + 128;
   }
+  
   return;
 }
 
@@ -377,7 +378,7 @@ void setBus (int eprom){
   return;
 }
 
-// Write single byte of data to SRAM and optionally to SPI_EEPROM
+// Write single byte of data to SRAM
 
 void writeMemoryLocation (unsigned short address, unsigned char data ) {
     unsigned char addressHi =  address >> 8 ;
@@ -502,7 +503,8 @@ void loop() {
       if ( rxFrame == ":iniSPI1" ) {
         saveSPI = true;
         EEPROM.update(save_cfg,1);
-        Serial.println("-> SPI save ON");     
+        Serial.println("-> SPI save ON");
+        spi_address = 0;     
       }
       // data will be also written to SPI
       if ( rxFrame == ":iniSPI0" ) {
@@ -511,7 +513,7 @@ void loop() {
         Serial.println("-> SPI save OFF");     
       }
       //
-       // data will be also written to SPI
+       // load the SPI EEPROM data to SRAM on boot.
       if ( rxFrame == ":iniAuto1" ) {
         autoLoad = true;
         EEPROM.update(auto_cfg,1);
