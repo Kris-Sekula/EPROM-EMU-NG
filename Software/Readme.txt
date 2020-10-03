@@ -4,7 +4,7 @@ Requires python 3.8, and the following libraries:
 * pySerial (pip install pyserial)
 * pySimpleGui (pip install pysimplegui) - for the beta GUI support to work
 
-parameters like type of memory, hex file etc shoul be provided via command line.
+parameters like type of memory, hex file etc should be provided via command line.
 
 There is "beta" GUI support - brings GUI parameter selection, just run the script without parameters and GUI will show up (of course only works in GUI environments :))
 
