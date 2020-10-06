@@ -4,7 +4,7 @@ C1,10uF,"Polarized capacitor",P19513CT-ND
 C7,22nF,Unpolarized capacitor,445-173593-1-ND
 "RN1, RN2",10K,"9 resistor network, star topology, bussed resistors, small symbol",4610X-1-103LF-ND
 "R1, R2",330R,Resistor 0.125W,CF18JT330RCT-ND
-"R3, R4, R7",10k,Resistor 0.125W,CF18JT10K0CT-ND
+"R3, R7",10k,Resistor 0.125W,CF18JT10K0CT-ND
 "R4",4.7k,Resistor 0.125W,CF18JT4K70CT-ND
 "R5, R6",10R,Resistor 0.125W,CF18JT10R0CT-ND
 D3,LED,LED RED,732-5005-ND
