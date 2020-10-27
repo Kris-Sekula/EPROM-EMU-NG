@@ -6,4 +6,4 @@ In version 1.4 I re-routed the power and improved the PCB design, so what you se
 
 In version 1.6 I added some component description on silkscreen, no changes to tracks routing.
 
-1.7 intoduces a minor fix for a desing flaw as described in the ERRATA document - currently waiting for the PCBs before I recommnend moving to v1.7
+1.7 intoduces a minor fix for a desing flaw as described in the ERRATA document - currently waiting for the PCBs before I recommnend moving to this new desing. Since I was re-ordering the PCBs I also enlarged the holes for J1 as depeding on vendor of the connector in some cases the fit was very tight.
