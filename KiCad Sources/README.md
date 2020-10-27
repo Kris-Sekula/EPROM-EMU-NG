@@ -5,3 +5,5 @@ One note: Most of the pictures on my page and here are based on ver v1.0 of the 
 In version 1.4 I re-routed the power and improved the PCB design, so what you see here on GitHub is PCB v1.4 desing files, but most pictures are still v1.0
 
 In version 1.6 I added some component description on silkscreen, no changes to tracks routing.
+
+1.7 intoduces a minor fix for a desing flaw as described in the ERRATA document - currently waiting for the PCBs before I recommnend moving to v1.7
