@@ -9,11 +9,11 @@ parameters like type of memory, hex file etc should be provided via command line
 For GUI, just run the script without parameters and GUI will show up (of course only works in GUI environments :))
 
 Example of parameters and output:
-
+```
 #python.exe EPROM_NG_v1.5h.py -mem 27256 -spi y -auto n 27256.HEX com4
 Running EPROM EMU NG python script version 1.5h
 
-Using serial port COM4, emulating: 27512 EPROM
+ Using serial port COM4, emulating: 27512 EPROM
 
 -- attempting to get sync --
 
@@ -21,6 +21,6 @@ Using serial port COM4, emulating: 27512 EPROM
 
 -- prcessing file --
 -> Emulator Running.
+```
 
-
-As of Nov 8 2020, it is recommended to use the 2.0rc1 version of the Python script (and a matching version of Arduino sketch) for the emulator. Please read the release notes.
+As of Nov 8 2020, it is recommended to use the 2.0rc1 version of the Python script (and a matching 2.0rc1 version of the Arduino sketch) for the emulator. Please read the release notes.
