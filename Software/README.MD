@@ -1,4 +1,4 @@
-Python script to control the EPROM Emulator.
+Python script to control the EPROM EMULATOR NG.
 
 Requires python 3.8, and the following libraries:
 * pySerial (pip install pyserial)
@@ -21,3 +21,6 @@ Using serial port COM4, emulating: 27512 EPROM
 
 -- prcessing file --
 -> Emulator Running.
+
+
+As of Nov 8 2020, it is recommended to use the 2.0rc1 version of the Python script (and a matching version of Arduino sketch) for the emulator. Please read the release notes.
