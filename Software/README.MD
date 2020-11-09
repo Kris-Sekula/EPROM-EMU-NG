@@ -2,12 +2,11 @@ Python script to control the EPROM Emulator.
 
 Requires python 3.8, and the following libraries:
 * pySerial (pip install pyserial)
-* pySimpleGui (pip install pysimplegui) - for the beta GUI support to work
+* pySimpleGui (pip install pysimplegui) 4.30.0 or above
 
 parameters like type of memory, hex file etc should be provided via command line.
 
-There is "beta" GUI support - brings GUI parameter selection, just run the script without parameters and GUI will show up (of course only works in GUI environments :))
-
+For GUI, just run the script without parameters and GUI will show up (of course only works in GUI environments :))
 
 Example of parameters and output:
 
