@@ -5,8 +5,8 @@ $Descr USLedger 17000 11000
 encoding utf-8
 Sheet 1 1
 Title "EPROM Emulator NG"
-Date "2020-11-08"
-Rev "1.8"
+Date "2020-11-18"
+Rev "1.8b"
 Comp "mygeekyhobby.com"
 Comment1 ""
 Comment2 ""
