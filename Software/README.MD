@@ -23,4 +23,4 @@ Running EPROM EMU NG python script version 1.5h
 -> Emulator Running.
 ```
 
-As of Nov 8 2020, it is recommended to use the 2.0rc1 version of the Python script (and a matching 2.0rc1 version of the Arduino sketch) for the emulator. Please read the release notes.
+As of Nov 23 2020, it is recommended to use the 2.0rc2 version of the Python script (and 2.0rc1 version of the Arduino sketch) for the emulator. Please read the release notes.
