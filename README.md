@@ -5,3 +5,7 @@ EPROM Emulator Project with Arduino Nano, read more on [https://MyGeekyHobby.com
 I have assembled devices and kits listed on [eBay](https://www.ebay.com/sch/avr4sale/m.html?_nkw=&_armrs=1&_ipg=&_from=)
 
 As people start building those, I encourage everyone to help creating updated firmware, software and collaborate here, report Issues if needed or contact me directly.
+
+If you found this helpful and you like the work I do, why not buy me a coffe, thanks ! :)
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R52KGCD)
