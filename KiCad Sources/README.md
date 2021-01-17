@@ -1,5 +1,7 @@
 KiCad project files.
 
+Version 2.1: Moved from using 2x 32k SRAM to single 128k SRAM (64k usable). Firware and software is the same for both.
+
 Version 1.9: Added pull-up resistors to /WE and EN_RST, helps prevent SRAM corruption during Arduino reset (needed only when doing partial uploads)
 
 Version 1.8b: Fixed the footprint for Q1-2N4401 and Q2-2N4403, see Errata document for more details.
