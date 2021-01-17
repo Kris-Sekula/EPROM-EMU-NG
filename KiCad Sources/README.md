@@ -1,5 +1,7 @@
 KiCad project files.
 
+Version 1.9: Added pull-up resistors to /WE and EN_RST, helps prevent SRAM corruption during Arduino reset (needed only when doing partial uploads)
+
 Version 1.8b: Fixed the footprint for Q1-2N4401 and Q2-2N4403, see Errata document for more details.
 
 Version 1.8: I re-shuffled resistor networks, added RN3 to offer optional pull-up resistors for address line A0-A7, RN2 should be populated, RN1 and RN3 are optional. Added Q3 for my experiments, but there is no need to populate that transistor.
