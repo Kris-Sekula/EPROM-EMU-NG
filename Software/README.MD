@@ -1,5 +1,9 @@
 Python script to control the EPROM EMULATOR NG.
 
+The emulator will show up as a serial port on your computer, depending on your the OS type and version you may need to install drivers, follow this instructions:
+
+https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
+
 Requires python 3.8, and the following libraries:
 * pySerial (pip install pyserial)
 * pySimpleGui (pip install pysimplegui) 4.30.0 or above
