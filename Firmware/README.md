@@ -1,4 +1,4 @@
-Firmware for Arduino Nano
+##Firmware for Arduino Nano
 
 Currently recommended firmware and software:
 *Firmware 2.0rc2 (EPROM_EMU_NG_FW_2.0rc2.ino)
