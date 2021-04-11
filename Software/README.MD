@@ -15,8 +15,8 @@ The emulator will show up as a serial port on your computer, depending on your t
 https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
 
 Requires python 3.8, and the following libraries:
-* pySerial (pip install pyserial)
-* pySimpleGui (pip install pysimplegui) 4.30.0 or above
+* pySerial (install by running the following commnad on your computer ```pip install pyserial```)
+* pySimpleGui (```pip install pysimplegui``) 4.30.0 or above
 
 parameters like type of memory, hex file etc should be provided via command line.
 
