@@ -1,3 +1,13 @@
+## Software (Python script) to control the EPROM emulator (must be used with compatible firware)
+
+### Currently recommended firmware and software:
+* Firmware 2.0rc2 (EPROM_EMU_NG_FW_2.0rc2.ino - Arduino sketch in [Firmware](https://github.com/Kris-Sekula/EPROM-EMU-NG/tree/master/Firmware) folder)
+* Software 2.0rc3 (EPROM_NG_v2.0rc3.py - Python script)
+
+### If you want to try new features (increased speed of transfer, support for EEPROM) use the following:
+* Firmware 2.0rc8 (EPROM_EMU_NG_FW_2.0rc8.ino - - Arduino sketch in [Firmware](https://github.com/Kris-Sekula/EPROM-EMU-NG/tree/master/Firmware) folder)
+* Software 2.0rc8 (EPROM_EMU_NG_2.0rc8.py - Python script)
+
 Python script to control the EPROM EMULATOR NG.
 
 The emulator will show up as a serial port on your computer, depending on your the OS type and version you may need to install drivers, follow this instructions:
@@ -10,7 +20,7 @@ Requires python 3.8, and the following libraries:
 
 parameters like type of memory, hex file etc should be provided via command line.
 
-For GUI, just run the script without parameters and GUI will show up (of course only works in GUI environments :))
+For **GUI mode**, just run the script **without parameters** and GUI will show up (of course only works in GUI environments :))
 
 Example of parameters and output:
 ```
@@ -26,5 +36,3 @@ Running EPROM EMU NG python script version 1.5h
 -- prcessing file --
 -> Emulator Running.
 ```
-
-As of Nov 23 2020, it is recommended to use the 2.0rc3 version of the Python script (and 2.0rc1 version of the Arduino sketch) for the emulator. Please read the release notes.
