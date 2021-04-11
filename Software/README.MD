@@ -1,4 +1,4 @@
-## Software (Python script) to control the EPROM emulator (must be used with compatible firware)
+## Software (Python script) to control the EPROM emulator
 
 ### Currently recommended firmware and software:
 * Firmware 2.0rc2 (EPROM_EMU_NG_FW_2.0rc2.ino - Arduino sketch in [Firmware](https://github.com/Kris-Sekula/EPROM-EMU-NG/tree/master/Firmware) folder)
