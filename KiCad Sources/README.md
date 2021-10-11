@@ -1,5 +1,7 @@
 KiCad project files.
 
+Version 2.2: Reshuffled component designations for pcb v1.9c and 2.2c to keep them in sync - help to keep the BoM alligned... only delta is the SRAM
+
 Version 2.1: Moved from using 2x 32k SRAM to single 128k SRAM (64k usable). Firware and software is the same for both.
 
 Version 1.9: Added pull-up resistors to /WE and EN_RST, helps prevent SRAM corruption during Arduino reset (needed only when doing partial uploads)
