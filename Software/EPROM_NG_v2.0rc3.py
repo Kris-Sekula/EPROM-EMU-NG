@@ -368,9 +368,20 @@ data = packetData(datamap)
 
 # ----------------------------------------------------------------------------------
 
-print("\n\nUsing serial port {}, emulating: {} EPROM".format(port,mem))
+print("\n\nOpening serial port {}, emulating: {} EPROM".format(port,mem))
 
-time.sleep(2)	# on nano, opening the port will trigger reset of the arduino, so need to wait
+time.sleep(1)	# on nano, opening the port will trigger reset of the arduino, so need to wait
+
+initialTime=time.time()
+response = ser.readline()	
+timeoutTime = 20
+print("If Auto Load is enabled, the SPI ROM is being read and loaded, this can take some time")
+print("Waiting up to "+str(timeoutTime)+" seconds for autoupload to finish",end ="", flush=True)
+
+while "HW" not in response.decode() and   time.time()-initialTime  < timeoutTime :
+		print(".", end ="", flush=True)
+		response = ser.readline()
+print()
 
 try:
 	for x in range(4):
@@ -391,7 +402,7 @@ try:
 	elif "...." in response.decode():
 		print("Waiting for autoupload to finish... Note: you can disable autoupload by long pressing pushbutton")
 		while "..." in ser.readline().decode():
-			print(".", end=' ', flush=True)	
+			print(".", end=' ', flush=True)
 		
 		print("")
 		time.sleep(2)
