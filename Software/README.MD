@@ -6,7 +6,7 @@
 
 ### If you want to try new features (increased speed of transfer, support for EEPROM) use the following:
 * Firmware 2.0rc12 (EPROM_EMU_NG_FW_2.0rc12.ino - Arduino sketch in [Firmware](https://github.com/Kris-Sekula/EPROM-EMU-NG/tree/master/Firmware) folder)
-* Software 2.0rc10 (EPROM_EMU_NG_2.0rc9.py - Python script)
+* Software 2.0rc10 (EPROM_EMU_NG_2.0rc10.py - Python script)
 
 Python script to control the EPROM EMULATOR NG.
 
