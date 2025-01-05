@@ -469,25 +469,25 @@ try:
 	
 	print("\n<- attempting to get sync")
 
-	data_tx = (":EMUOFF\r\n").encode()
+	data_tx = b":EMUOFF\r\n"
 	ser.write(data_tx)
 	response = ser.readline()
 
-	if "HW: " in response.decode():	# Emulator will respond with version number like "HW: v1.0"
+	if b"HW: " in response:	# Emulator will respond with version number like "HW: v1.0"
 		print(response.decode())
-	elif ".." in response.decode():
+	elif b".." in response:
 		print("Waiting for autoupload to finish...")
-		while ".." in ser.readline().decode():
+		while b".." in ser.readline():
 			print(".", end=' ', flush=True)	
 		
 		print("")
 		time.sleep(2)
 		ser.flushInput() # ignore anything waiting in the input buffer.
 
-		data_tx = (":EMUOFF\r\n").encode()
+		data_tx = b":EMUOFF\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
-		if "HW: " in response.decode():
+		if b"HW: " in response:
 			print(response.decode())
 		else:
 			print("Failed to connect after autoload - exiting")
@@ -495,12 +495,12 @@ try:
 			exit()
 	else:
 		# try to see if emulator running old FW is connected
-		data_tx = (":dml\r\n").encode()
+		data_tx = b":dml\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
 		print("\n")
-		if "HW: " in response.decode():
-			print(response.decode())
+		if b"HW: " in response:
+			print(response.decode(errors="ignore"))
 			print("-"*80)
 			print("    !!! Looks like you are using an old version of firmware on your emulator !!!")
 			print("        Please upgrade using Arduino platform and compatible .ino file")
@@ -518,13 +518,13 @@ try:
 	#
 	if spi == "y":
 		print('<- Setting "Save to SPI EEPROM" option to enable')
-		data_tx = (":iniSPI1\r\n").encode()
+		data_tx = b":iniSPI1\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
 		print(response.decode())
 	if spi == "n":
 		print('<- Setting "Save to SPI EEPROM" option to disable')
-		data_tx = (":iniSPI0\r\n").encode()
+		data_tx = b":iniSPI0\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
 		print(response.decode())
@@ -534,13 +534,13 @@ try:
 	#
 	if auto == "y":
 		print('<- Setting "Auto load from SPI EEPROM" option to enable')
-		data_tx = (":iniAuto1\r\n").encode()
+		data_tx = b":iniAuto1\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
 		print(response.decode())
 	if auto == "n":
 		print('<- Setting "Auto load from SPI EEPROM" option to disable')
-		data_tx = (":iniAuto0\r\n").encode()
+		data_tx = b":iniAuto0\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
 		print(response.decode())
@@ -553,9 +553,9 @@ try:
 		
 		# request byte frame processing
 		if spi == "y":
-			data_tx = (":SBN\r\n").encode()
+			data_tx = b":SBN\r\n"
 		else:
-			data_tx = (":DIR\r\n").encode()
+			data_tx = b":DIR\r\n"
 		
 		ser.write(data_tx)
 		# Wait for ACK
@@ -573,7 +573,7 @@ try:
 				buff64k[x] = 0xff
 		
 		# send to emulator
-		ser.write(buff64k[StartAddr:StartAddr+FrameSize])
+		ser.write(bytes(buff64k[StartAddr:StartAddr+FrameSize]))
 		response = ser.readline()
 		
 		print("0x%0.4X"%StartAddr,response.decode().strip(), end='\r', flush=True)
@@ -591,7 +591,7 @@ try:
 	print("<- Enable Emulation")
 	
 	# enable emulation
-	data_tx = (":EMUON\r\n").encode()
+	data_tx = b":EMUON\r\n"
 	ser.write(data_tx)
 
 	response = ser.readline()
