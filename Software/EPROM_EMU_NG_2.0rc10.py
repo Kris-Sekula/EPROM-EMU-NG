@@ -405,6 +405,11 @@ if isbin:	# process bin
 	binfile = open(file,"rb").read()
 	file_size = len(binfile)
 
+	# Validate file size against maximum buffer size
+	if startaddr + file_size > len(buff64k):
+		print("Error: File size exceeds buffer capacity.")
+		sys.exit(1)
+
 	# load the binary file into the buffer at start location
 	for x in range (0,file_size):
 		buff64k[x+startaddr] = binfile[x]
