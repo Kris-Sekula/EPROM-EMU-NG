@@ -298,7 +298,9 @@ else:
 	default_location = (100,100)
 	# Retrieve last saved window position or use the default
 	last_position = sg.user_settings_get_entry('window_location', default_location)
-
+	# Validate position
+	if last_position is None or not isinstance(last_position, tuple) or len(last_position) != 2:
+		last_position = default_location
 	window = sg.Window('EPROM EMU NG Uploader '+version, layout, location=last_position)
 	gui = True
 
