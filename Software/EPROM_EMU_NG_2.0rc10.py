@@ -232,7 +232,7 @@ def ParseIntelLine(line):
 # -----------------------------------------------------------------------
 
 def get_com_ports():
-    return [p.device for p in comports()]
+	return [p.device for p in comports()]
 
 # -----------------------------------------------------------------------
 
@@ -245,7 +245,7 @@ sg.theme('DarkBlue3')   # Add a touch of color
 
 layout = [
 	[sg.Text('EPROM Emulator Uploader', font=("Helvetica", 16), justification='center')],
-    [sg.Column( [
+	[sg.Column( [
 	[sg.Frame(
 		"EPROM Settings",
 		[[sg.Text('EPROM Type:', size=(40, 1)), sg.Combo(
@@ -271,8 +271,8 @@ layout = [
 	)],
 	[sg.Checkbox('Show Data Map', sg.user_settings_get_entry('map', True), key='map')],
 	[sg.Button('Submit'), sg.Button('Cancel')]
-    ], pad=(0,0), scrollable=False
-    )]
+	], pad=(0,0), scrollable=False
+	)]
 ]
 
 if len(sys.argv) >= 2:
@@ -377,11 +377,11 @@ elif mem == "27512":
 	max_size = 65536
 
 try:
-        ser = serial.Serial(port=port,baudrate=115200,timeout=0.5,writeTimeout=0)
+		ser = serial.Serial(port=port,baudrate=115200,timeout=0.5,writeTimeout=0)
 		#ser = serial.Serial(port=port,baudrate=1000000,timeout=0.5,writeTimeout=0)
 except:
-        print("Failed to open port, verify port name")
-        exit()
+		print("Failed to open port, verify port name")
+		exit()
 
 # ------------------------------------------------------------------------
 buff64k = [-1]*65536
