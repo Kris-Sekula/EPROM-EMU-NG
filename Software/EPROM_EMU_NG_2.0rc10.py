@@ -417,10 +417,9 @@ else:	# process hex file
 	with open(file) as fp:
 		while True:
 			line = fp.readline()
-			if len(line) > 0:
-				if ParseIntelLine(line):
-					break
-			else:
+			if not line:
+				break
+			if ParseIntelLine(line):
 				break
 		if Errors == 0:
 			print("done (hex)")
