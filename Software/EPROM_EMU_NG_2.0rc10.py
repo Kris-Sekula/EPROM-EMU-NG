@@ -388,9 +388,8 @@ except:
 # ------------------------------------------------------------------------
 buff64k = [-1]*65536
 # -------------------------------------------------------------------------
-print ("\nRunning EPROM EMU NG python script version",version)
-print("")
-print("File used: {}\n".format(os.path.basename(file)))
+print ("EPROM EMU NG tool v{}\n".format(version))
+print("Processing {}... ".format(os.path.basename(file)), end="")
 
 filename, file_extension = os.path.splitext(file)
 
@@ -409,7 +408,7 @@ if isbin:	# process bin
 	# load the binary file into the buffer at start location
 	for x in range (0,file_size):
 		buff64k[x+startaddr] = binfile[x]
-	print("Done processing bin\n")
+	print("done (bin)")
 
 else:	# process hex file
 	Bytes_Written = 0
@@ -424,7 +423,7 @@ else:	# process hex file
 			else:
 				break
 		if Errors == 0:
-			print("Done processing hex\n")
+			print("done (hex)")
 	fp.close()
 
 # generate data map (list of 128Byte chunks that has data)
@@ -433,8 +432,6 @@ datamap = chunkData(buff64k)
 if mapmem == "y":
 	print('Each symbol represents 128Bytes "*" with data, "-" with no data\n')
 	plotData(datamap)
-else:
-	print("Memory map disabled")
 
 # at this point we have raw data in the buffer, 
 
@@ -456,7 +453,7 @@ data = packetData(datamap)
 
 # ----------------------------------------------------------------------------------
 
-print("\n\nUsing serial port {}, emulating: {} EPROM".format(port,mem))
+print("Using serial port {}, emulating: {} EPROM".format(port,mem))
 
 time.sleep(2)	# on nano, opening the port will trigger reset of the arduino, so need to wait
 
@@ -467,20 +464,19 @@ try:
 	
 	ser.flushInput() # ignore anything waiting in the input buffer.
 	
-	print("\n<- attempting to get sync")
+	print("<- attempting to get sync")
 
 	data_tx = b":EMUOFF\r\n"
 	ser.write(data_tx)
 	response = ser.readline()
 
 	if b"HW: " in response:	# Emulator will respond with version number like "HW: v1.0"
-		print(response.decode())
+		print(response.decode(errors="ignore"), end="")
 	elif b".." in response:
 		print("Waiting for autoupload to finish...")
 		while b".." in ser.readline():
 			print(".", end=' ', flush=True)	
 		
-		print("")
 		time.sleep(2)
 		ser.flushInput() # ignore anything waiting in the input buffer.
 
@@ -488,17 +484,16 @@ try:
 		ser.write(data_tx)
 		response = ser.readline()
 		if b"HW: " in response:
-			print(response.decode())
+			print(response.decode(errors="ignore"))
 		else:
 			print("Failed to connect after autoload - exiting")
-			print("Debug info:", response.decode())
+			print("Debug info:", response.decode(errors="ignore"))
 			exit()
 	else:
 		# try to see if emulator running old FW is connected
 		data_tx = b":dml\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
-		print("\n")
 		if b"HW: " in response:
 			print(response.decode(errors="ignore"))
 			print("-"*80)
@@ -508,7 +503,6 @@ try:
 		else:
 			print("Failed to connect - exiting")
 		# give ppl chance to read the failed connection reason even in GUI mode
-		input("Press Enter to continue...")	
 		exit()
 
 	# Connected, now we can send settings
@@ -521,13 +515,13 @@ try:
 		data_tx = b":iniSPI1\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
-		print(response.decode())
+		print(response.decode(), end="")
 	if spi == "n":
 		print('<- Setting "Save to SPI EEPROM" option to disable')
 		data_tx = b":iniSPI0\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
-		print(response.decode())
+		print(response.decode(), end="")
 
 	#
 	# Set the Auto load from SPI EEPROM option
@@ -537,15 +531,15 @@ try:
 		data_tx = b":iniAuto1\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
-		print(response.decode())
+		print(response.decode(), end="")
 	if auto == "n":
 		print('<- Setting "Auto load from SPI EEPROM" option to disable')
 		data_tx = b":iniAuto0\r\n"
 		ser.write(data_tx)
 		response = ser.readline()
-		print(response.decode())
+		print(response.decode(), end="")
 
-	print("<- processing file\n")
+	print("<- processing file:")
 	start = time.time()
 
 	for StartAddr,FrameSize in data:
@@ -580,31 +574,25 @@ try:
 		
 
 	taken = time.time() - start
-	print("\n\nTime taken to transfer: {}s \n".format(str(round(taken,2))))
-	print("<- Setting EPROM Type")
+	print("\nTime taken to transfer: {}s".format(str(round(taken,2))))
 
+	print("<- Setting EPROM Type")
 	data_tx = (mem_type + "\r\n").encode()
 	ser.write(data_tx)
 	response = ser.readline()
-	print(response.decode())
+	print(response.decode(), end="")
 
 	print("<- Enable Emulation")
-	
 	# enable emulation
 	data_tx = b":EMUON\r\n"
 	ser.write(data_tx)
-
 	response = ser.readline()
 	print(response.decode())
-
-	print("\nSuccess, Finished.")
+	print("Success, Finished.")
 
 except Exception as e:
 	print("Failed to send",e)
-	input("Press Enter to continue...")
 	
 ser.close()
 
-if gui:
-	input("Press Enter to continue...")
 sys.exit(0)
