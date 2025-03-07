@@ -18,11 +18,11 @@ Requires Python 3.8, and the following libraries:
 * pySerial (install by running the following command on your computer ```pip install pyserial```)
 * pySimpleGui ~~(```pip install pysimplegui```)~~ 4.30.0 ~~or above~~
 
-NOTE: this has recently changed, the current PySimpleGUI library as installed via pip will not work, please follow the new instructions:
-1. Download older version of library from [mygeekyhobby](https://mygeekyhobby.com/wp-content/uploads/2025/03/pysimplegui4.zip)
-2. Unzip to a local folder.
-3. Open command line in the folder where you downloaded the file - you should see a single file "PySimpleGUI-4.60.5.tar.gz"
-4. run the following command ```pip install PySimpleGUI-4.60.5.tar.gz```
+ this has recently changed, the current PySimpleGUI library as installed via pip will not work, please follow the new instructions:
+ * Download older version of library from [mygeekyhobby](https://mygeekyhobby.com/wp-content/uploads/2025/03/pysimplegui4.zip)
+ * Unzip to a local folder - you should see a single file "PySimpleGUI-4.60.5.tar.gz"
+ * Open command line in the folder where you downloaded the file.
+ * run the following command ```pip install PySimpleGUI-4.60.5.tar.gz```
 
 
 parameters like type of memory, hex file etc, should be provided via command line.
