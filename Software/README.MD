@@ -21,7 +21,7 @@ Requires Python 3.8, and the following libraries:
   PySimpleGui has recently changed, the current PySimpleGUI library as installed via pip will not work, please follow the new instructions:
   * Download older version of library from [mygeekyhobby.com](https://mygeekyhobby.com/wp-content/uploads/2025/03/pysimplegui4.zip)
   * Unzip to a local folder - you should see a single file "PySimpleGUI-4.60.5.tar.gz"
-  * Open command line in the folder where you downloaded the file.
+  * Open command line in the folder where you extracted the file.
   * run the following command ```pip install PySimpleGUI-4.60.5.tar.gz```
 
 
