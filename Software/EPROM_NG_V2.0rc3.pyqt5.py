@@ -19,7 +19,7 @@
 # ver 2.0rc2 - Oct 2020   	- support other extensions like .rom .img etc... everything not .hex is treated as binary (thanks to Hubert for the feedback and contribution)
 #                           - fixed bug where a 128Byte of "00h" was treated as "no data" (thanks to Hubert for the feedback and contribution)
 # ver 2.0rc3 - Oct 2020     - code from rc1 that was missing in rc2 was added back, one typo fixed (thx again Hubert)   	
-# ver 2.0rc3.pyqt - Mar 2025     - Changed from pysimplegui to pyqt5 -jrork
+# ver 2.0rc3.pyqt - Mar 2025     - Changed from pysimplegui to pyqt5 -jrork (needs PyQt5 installed: pip install PyQt5) 
 
 version = "2.0rc3.pyqt"
 
