@@ -35,7 +35,9 @@ There are two essential libraries that you must install:
 
 In Python, we install the libraries by calling a "package manager" called PIP. In your command prompt, you need to run:
 ```python -m pip install pyserial```
+
 and 
+
 ```python -m pip install FreeSimpleGUI```
 
 ### 4.1 Run the script - CLI mode
@@ -48,7 +50,7 @@ Parameters are explained:
 "blink.bin" -> file getting transferred (we support binary and intel hex files)
 "COM13" -> serial port the emulator is plugged in
 
-Here is the full output of the upload session:
+Here is a full output of the "upload session":
 ```
 C:\PyDev>python.exe EPROM_NG_v2.0rc4.py -mem 27512 blink.bin COM13
 
