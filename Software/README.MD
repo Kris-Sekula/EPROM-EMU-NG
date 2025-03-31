@@ -8,7 +8,7 @@
 * Firmware 2.0rc12 (EPROM_EMU_NG_FW_2.0rc12.ino - Arduino sketch in [Firmware](https://github.com/Kris-Sekula/EPROM-EMU-NG/tree/master/Firmware) folder)
 * Software 2.0rc10 (EPROM_EMU_NG_2.0rc10.py - Python script)
 
-To successfully use the EPROM Emulator, you must do the following:
+## To successfully use the EPROM Emulator, you must do the following:
 1. Build or purchase the device
 2. Install drivers
 3. Install Python
