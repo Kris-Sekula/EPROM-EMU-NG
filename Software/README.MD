@@ -37,6 +37,7 @@ There are two essential libraries that you must install:
 * FreeSimpleGUI - to allow a Python script to display a graphical user interface (GUI)
 
 In Python, we install the libraries by calling a "package manager" called PIP. In your command prompt, you need to run:
+
 ```python -m pip install pyserial```
 
 and 
