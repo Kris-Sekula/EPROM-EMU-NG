@@ -9,13 +9,16 @@
 * Software 2.0rc10 (EPROM_EMU_NG_2.0rc10.py - Python script)
 
 To successfully use the EPROM Emulator, you must do the following:
-- [x] Build or purchase the device
-- [ ] Install drivers
-- [ ] Install Python
-- [ ] Install required Python libraries
-- [ ] Run the script in command line mode (CLI) or in graphical interface mode (GUI)
+1. Build or purchase the device
+2. Install drivers
+3. Install Python
+4. Install required Python libraries
+5. Run the script in command line mode (CLI) or in graphical interface mode (GUI)
 
-### 1. Install Drivers
+### 1. Build or purchase the device
+Follow the instructions in the Hardware section or purchase on eBay.
+
+### 2. Install Drivers
 If you're using a genuine Arduino Nano module, install the Arduino IDE (this will install the drivers for all modules).
 Most people use the much cheaper "clones", those in most cases, use the CH340 chip.
 When plugged to a computer, they are supposed to "show up" as a "serial port device", but in many cases, driver installation is required. 
@@ -24,17 +27,17 @@ Sparkfun created a dedicated page that will guide you through the installation o
 
 https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
 
-### 2. Install Python
+### 3. Install Python
 The base way to install Python is to download the installation file from https://www.python.org/downloads/
 
 > [!TIP]
-> The installer has an option called "Add python<version> to PATH", make sure you select it, this makes executing scripts much easier.
+> The installer has an option called "Add python to PATH", make sure you select it, this makes executing scripts much easier.
 
-### 3. Install required libraries
+### 4. Install required libraries
 There are two essential libraries that you must install:
 
-* pyserial - to enable serial communication in Python
-* FreeSimpleGUI - to allow a Python script to display a graphical user interface (GUI)
+* **pyserial** - to enable serial communication in Python
+* **FreeSimpleGUI** - to allow a Python script to display a graphical user interface (GUI)
 
 In Python, we install the libraries by calling a "package manager" called PIP. In your command prompt, you need to run:
 
@@ -44,14 +47,17 @@ and
 
 ```python -m pip install FreeSimpleGUI```
 
-### 4.1 Run the script - CLI mode
+### 5.1 Run the script - CLI mode
 You can run the script in a command-line mode by supplying the required parameters. Here is an example of the minimum required parameters to run the script:
 
 ```python.exe EPROM_NG_v2.0rc4.py -mem 27512 blink.bin COM13```
 
 Parameters are explained:
+
 "-mem 27512" -> Type of emulated memory
+
 "blink.bin" -> file getting transferred (we support binary and intel hex files)
+
 "COM13" -> serial port the emulator is plugged in
 
 Here is a full output of the "upload session":
@@ -86,8 +92,8 @@ ACK
 -> Bus set to 27512 EPROM Memory
 ```
 
-## 4.2 Run the script - GUI mode
-If you want to start the script in graphical mode, simply start it without any parameters:
+## 5.2 Run the script - GUI mode
+If you want to start the script in graphical mode, **simply start it without any parameters**:
 
 ```python.exe EPROM_NG_v2.0rc4.py```
 
