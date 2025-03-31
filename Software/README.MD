@@ -17,9 +17,11 @@ To successfully use the EPROM Emulator, you must do the following:
 
 ### 1. Install Drivers
 If you're using a genuine Arduino Nano module, install the Arduino IDE (this will install the drivers for all modules).
-Most people use the much cheaper "clones," which, in most cases, use the CH340 chip. 
-When plugged to a computer they are supposed to "show up" as a "serial port device", but in many cases, driver installation is required. 
-Sparkfun created a dedicated page that will guide you through the installation of CH340 drivers
+Most people use the much cheaper "clones", those in most cases, use the CH340 chip.
+When plugged to a computer, they are supposed to "show up" as a "serial port device", but in many cases, driver installation is required. 
+
+Sparkfun created a dedicated page that will guide you through the installation of CH340 drivers:
+
 https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
 
 ### 2. Install Python
@@ -30,6 +32,7 @@ The base way to install Python is to download the installation file from https:/
 
 ### 3. Install required libraries
 There are two essential libraries that you must install:
+
 * pyserial - to enable serial communication in Python
 * FreeSimpleGUI - to allow a Python script to display a graphical user interface (GUI)
 
